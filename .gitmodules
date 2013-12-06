@@ -181,3 +181,9 @@
 [submodule "bundle/cocoa.vim"]
 	path = bundle/cocoa.vim
 	url = git://github.com/msanders/cocoa.vim.git
+[submodule "bundle/xnudmesg"]
+	path = bundle/xnudmesg
+	url = git@github.com:afrojer/vim-xnudmesg.git
+[submodule "bundle/crdmesg"]
+	path = bundle/crdmesg
+	url = git@github.com:afrojer/vim-crdmesg.git
