@@ -1,0 +1,219 @@
+
+let os = substitute(system('uname'), "\n", "", "")
+
+if $TERM =~ '256color'
+	set t_Co=256
+elseif $TERM =~ '^xterm$'
+	set t_Co=256
+elseif os == "Darwin"
+	set t_Co=16
+endif
+
+set mouse=a                     " allow mouse from terminal
+
+command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
+function! s:HighlightLongLines(width)
+    let targetWidth = a:width != '' ? a:width : 79
+    if targetWidth > 0
+        exec 'match Todo /\%>' . (targetWidth) . 'v/'
+    else
+        echomsg "Usage: HighlightLongLines [natural number]"
+    endif
+endfunction
+
+map <Leader>ll :HighlightLongLines 80<cr>
+map <Leader>nl :HighlightLongLines 1000<cr>
+
+function! SetWhitespaceFormat(style)
+	if a:style =~ '^android'
+		set expandtab
+		set tabstop=4
+		set shiftwidth=4
+		set textwidth=120
+		echomsg "Whitespace format set to 'android'"
+	elseif a:style =~ '^pvr'
+		set noexpandtab
+		set tabstop=4
+		set shiftwidth=4
+		set textwidth=80
+		echomsg "Whitespace format set to 'PVR'"
+	elseif a:style =~ '^kernel'
+		set noexpandtab
+		set tabstop=8
+		set shiftwidth=8
+		set textwidth=80
+		echomsg "Whitespace format set to 'kernel'"
+	elseif a:style =~ '^ocaml'
+		set expandtab
+		set tabstop=2
+		set shiftwidth=2
+		set textwidth=500
+	else
+		set noexpandtab
+		set tabstop=4
+		set shiftwidth=4
+		set textwidth=80
+		echomsg "default whitespace format..."
+	endif
+endfunction
+
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+set textwidth=80
+
+map <Leader>wa :call SetWhitespaceFormat("android")<CR>
+map <Leader>wk :call SetWhitespaceFormat("kernel")<CR>
+map <Leader>wp :call SetWhitespaceFormat("pvr")<CR>
+map <Leader>wo :call SetWhitespaceFormat("ocaml")<CR>
+map <Leader>wd :call SetWhitespaceFormat("default")<CR>
+
+
+command! -nargs=* GrepSyscall call s:GrepSyscall(<f-args>)
+function! s:GrepSyscall(name,path)
+	let tgtPath = a:path != '' ? a:path : '.'
+	if a:name != ''
+		echomsg "Looking for a syscall named ".a:name." in ".tgtPath
+		exec "grep -sInR 'SYSCALL.*".a:name."' ".tgtPath
+	else
+		echomsg "Usage: GrepSyscall [syscall_name] {path}"
+	endif
+endfunction
+
+map <Leader>gs :call GrepSyscall
+
+""""""""""""""""""""""""""""""
+" => Minibuffer plugin
+""""""""""""""""""""""""""""""
+"map <M-j> :bn<cr>
+"map <M-k> :bp<cr>
+"map <C-h> :tabprev<cr>
+"map <C-l> :tabnext<cr>
+nnoremap <M-[> :tabprev<CR>
+nnoremap <M-]> :tabnext<CR>
+
+" force these values (Ctrl-J seems to get messed up somwhere...)
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-l> :wincmd l<CR>
+
+nnoremap <C-n> :cnext<cr>
+nnoremap <C-p> :cprev<cr>
+
+if os == "Linux"
+	:command! -bar -nargs=1 OpenURL :!firefox <args>
+elseif os == "Darwin"
+	:command! -bar -nargs=1 OpenURL :!open <args>
+endif
+
+" CleanClose
+nmap fc :call CleanClose(1)<cr>
+nmap fq :call CleanClose(0)<cr>
+function! CleanClose(tosave)
+	if (a:tosave == 1)
+		w!
+	endif
+	let todelbufNr = bufnr("%")
+	let newbufNr = bufnr("#")
+	if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
+		exe "b".newbufNr
+	else
+		bnext
+	endif
+	if (bufnr("%") == todelbufNr)
+		new
+	endif
+	exe "bd!".todelbufNr
+endfunction
+""""""""""""""""""""""""""""""""""""""""
+
+let Grep_Skip_Dirs = '.git'
+let Grep_Skip_files = '*~ cscope* .svn'
+" -s: suppress non-existant/unreadable file errors
+" -I: process binary files
+" -n: prefix result with line number
+" -R: recursive
+let Grep_Default_Options = '-s -I -n -R'
+nnoremap <silent> <F7> :Rgrep <CR><CR><CR><CR>
+
+map <Leader>ss :setlocal spell!<cr>
+map <Leader>/ :nohlsearch<cr>
+map <Leader>t :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+map <Leader>me :MiniBufExplorer<cr>
+map <Leader>c :call setqflist([])<cr>
+
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    vnoremap <Leader>y y:call system("pbcopy", getreg("\""))<cr>
+    nnoremap <Leader>p :call setreg("\"",system("pbpaste"))<cr>p
+  else
+    vnoremap <Leader>y "*y
+    nnoremap <Leader>p "*p
+  endif
+endif
+
+" Let mac-vim receive meta-key input
+if has("gui_running") && has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    set invmmta
+  endif
+endif
+
+""""""""""""""""""""""""""""""""""""""
+" Some Vim-LaTeX settings
+set shellslash
+set grepprg=grep\ -nH\ $*
+if has('gui_running')
+	let g:tex_flavor='pdflatex'
+	let g:Tex_DefaultTargetFormat = 'pdf'
+	"TexLet g:Tex_TreatMacViewerAsUNIX = 1
+	let Tex_ViewRuleComplete_pdf = '/usr/bin/open -a Preview $*.pdf' 
+endif
+
+""""""""""""""""""""""""""""""""""""""
+" When I write assembly, I write ARM assembly
+au BufNewFile,BufRead *.S set filetype=armasm
+
+""""""""""""""""""""""""""""""""""""""
+" Pipe kernel buffer into appropriately named file: voila colors
+au BufNewFile,BufRead *.crdmesg set filetype=crdmesg
+au BufNewFile,BufRead *.dmesg set filetype=xnudmesg
+au BufNewFile,BufRead *.xnudmesg set filetype=xnudmesg
+
+" Fugitve key mappings
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+
+
+""""""""""""""""""""""""""""""""""""""
+" Get rid of some very annoying warnings opening stdin
+
+compiler gcc
+set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ syscall\ process_vm_readv\ not\ implemented\ [-Wcpp]
+set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ syscall\ process_vm_writev\ not\ implemented\ [-Wcpp]
+set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"
+set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"\ [-Wcpp]
+
+""""""""""""""""""""""""""""""""""""""
+" Remap autocomplete to ctrl+space
+if has("gui_running")
+  " C-Space seems to work under gVim on both Linux and win32
+  inoremap <C-Space> <C-n>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <C-n>
+  else
+  " I have no idea of the name of Ctrl-Space elsewhere
+  endif
+endif
+
+let g:SuperTabMappingTabLiteral = '<s-tab>'
+let g:SuperTabMappingForward = '<C-Space>'
+let g:SuperTabMappingBackward = '<s-nul>'
