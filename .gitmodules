@@ -174,3 +174,10 @@
 [submodule "bundle/slim"]
 	path = bundle/slim
 	url = git://github.com/slim-template/vim-slim.git
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = git://github.com/afrojer/vim-latex.git
+	ignore = dirty
+[submodule "bundle/cocoa.vim"]
+	path = bundle/cocoa.vim
+	url = git://github.com/msanders/cocoa.vim.git
