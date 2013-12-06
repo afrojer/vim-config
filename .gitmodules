@@ -120,7 +120,7 @@
 	ignore = dirty
 [submodule "bundle/molokai"]
 	path = bundle/molokai
-	url = git://github.com/nviennot/molokai.git
+	url = git://github.com/afrojer/molokai.git
 	ignore = dirty
 [submodule "bundle/armasm"]
 	path = bundle/armasm
