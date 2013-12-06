@@ -1,4 +1,6 @@
 set lines=40 columns=150
 
+set guioptions+=r  "add the right-hand scroll bar
+
 map <F1> :set guifont=Monospace\ 9<CR>
 map <F2> :set guifont=Monospace\ 14<CR>
