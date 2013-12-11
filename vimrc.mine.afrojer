@@ -144,10 +144,11 @@ map <Leader>me :MiniBufExplorer<cr>
 map <Leader>c :call setqflist([])<cr>
 
 if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    vnoremap <Leader>y y:call system("pbcopy", getreg("\""))<cr>
-    nnoremap <Leader>p :call setreg("\"",system("pbpaste"))<cr>p
+  if os == "Darwin"
+"    vnoremap <Leader>y y:call system("pbcopy", getreg("\""))<cr>
+"    nnoremap <Leader>p :call setreg("\"",system("pbpaste"))<CR>p
+    vnoremap <Leader>y y:call system("ssh localhost pbcopy", getreg(""))<CR><CR>
+    nnoremap <Leader>p :call setreg("",system("ssh localhost pbpaste"))<CR>p
   else
     vnoremap <Leader>y "*y
     nnoremap <Leader>p "*p
@@ -156,8 +157,7 @@ endif
 
 " Let mac-vim receive meta-key input
 if has("gui_running") && has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
+  if os == "Darwin"
     set invmmta
   endif
 endif
@@ -170,7 +170,7 @@ if has('gui_running')
 	let g:tex_flavor='pdflatex'
 	let g:Tex_DefaultTargetFormat = 'pdf'
 	"TexLet g:Tex_TreatMacViewerAsUNIX = 1
-	let Tex_ViewRuleComplete_pdf = '/usr/bin/open -a Preview $*.pdf' 
+	let Tex_ViewRuleComplete_pdf = '/usr/bin/open -a Preview $*.pdf'
 endif
 
 """"""""""""""""""""""""""""""""""""""
