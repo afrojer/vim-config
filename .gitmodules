@@ -102,10 +102,6 @@
 	path = bundle/l9
 	url = git://github.com/vim-scripts/L9.git
 	ignore = dirty
-[submodule "bundle/yankring"]
-	path = bundle/yankring
-	url = git://github.com/vim-scripts/YankRing.vim.git
-	ignore = dirty
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
