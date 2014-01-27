@@ -227,3 +227,6 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 let g:SuperTabMappingTabLiteral = '<s-tab>'
 let g:SuperTabMappingForward = '<C-Space>'
 let g:SuperTabMappingBackward = '<s-nul>'
+
+" Take it easy on the auto updating
+autocmd BufEnter * set updatetime=60000
