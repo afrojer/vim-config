@@ -214,19 +214,36 @@ else " no gui
   endif
 endif
 
-" cscope keybindings
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
 let g:SuperTabMappingTabLiteral = '<s-tab>'
 let g:SuperTabMappingForward = '<C-Space>'
 let g:SuperTabMappingBackward = '<s-nul>'
+
+""""""""""""""""""""""""""""""""""""""
+" cscope keybindings
+set cscopequickfix=s-,g-,d-,c-,t-,e-,f-,i-
+" The :execute... bits will perform a Ctrl-O to jump back to the previous
+" location, and the :copen will open the quickfix buffer. This interacts nicely
+" with the cscopequickfix line above: now cscope results will be placed in the
+" quickfix buffer, you will still be in the same location in your code, and the
+" quickfix buffer will be in focus for easy searching of results.
+
+" Find this C symbol
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+" Find this definition
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>G :cs find g <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+" Find functions calling this function
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+" Find assignments to
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+" Find this egrep pattern
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+" Find this file
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+" Find files #-including this file
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+" Find functions called by this function
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
 
 " Take it easy on the auto updating
 autocmd BufEnter * set updatetime=60000
