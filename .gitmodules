@@ -183,3 +183,6 @@
 [submodule "bundle/crdmesg"]
 	path = bundle/crdmesg
 	url = git@github.com:afrojer/vim-crdmesg.git
+[submodule "bundle/qfenter"]
+	path = bundle/qfenter
+	url = https://github.com/yssl/QFEnter.git
