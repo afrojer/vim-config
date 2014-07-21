@@ -89,8 +89,6 @@ map <Leader>gs :call GrepSyscall
 "map <M-k> :bp<cr>
 "map <C-h> :tabprev<cr>
 "map <C-l> :tabnext<cr>
-nnoremap <M-[> :tabprev<CR>
-nnoremap <M-]> :tabnext<CR>
 
 " force these values (Ctrl-J seems to get messed up somwhere...)
 nnoremap <C-j> :wincmd j<CR>
@@ -98,8 +96,8 @@ nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-l> :wincmd l<CR>
 
-nnoremap <C-n> :cnext<cr>
-nnoremap <C-p> :cprev<cr>
+nnoremap <C-N> :cnext<cr>
+nnoremap <C-P> :cprev<cr>
 
 if os == "Linux"
 	:command! -bar -nargs=1 OpenURL :!firefox <args>
@@ -138,8 +136,7 @@ let Grep_Default_Options = '-s -I -n -R'
 nnoremap <silent> <F7> :Rgrep <CR><CR><CR><CR>
 
 map <Leader>ss :setlocal spell!<cr>
-map <Leader>/ :nohlsearch<cr>
-map <Leader>t :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+map <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map <Leader>me :MiniBufExplorer<cr>
 map <Leader>c :call setqflist([])<cr>
 
