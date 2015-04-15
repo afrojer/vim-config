@@ -28,7 +28,7 @@ clean_mine:
 %.mine: %.mine.$(ME)
 	$(call check_file,$@)
 	@echo Using $(ME) $* file
-	@cp $< $@
+	@ln -s $< $@
 
 $(HOME)/.%: %
 	$(call check_file,$@)

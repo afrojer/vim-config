@@ -48,6 +48,13 @@ function! SetWhitespaceFormat(style)
 		set tabstop=2
 		set shiftwidth=2
 		set textwidth=500
+		echomsg "Whitespace format set to 'OCaml'"
+	elseif a:style =~ '^latex'
+		set expandtab
+		set tabstop=2
+		set shiftwidth=2
+		set textwidth=80
+		echomsg "Whitespace format set to 'LaTeX'"
 	else
 		set noexpandtab
 		set tabstop=4
@@ -66,6 +73,7 @@ map <Leader>wa :call SetWhitespaceFormat("android")<CR>
 map <Leader>wk :call SetWhitespaceFormat("kernel")<CR>
 map <Leader>wp :call SetWhitespaceFormat("pvr")<CR>
 map <Leader>wo :call SetWhitespaceFormat("ocaml")<CR>
+map <Leader>wl :call SetWhitespaceFormat("latex")<CR>
 map <Leader>wd :call SetWhitespaceFormat("default")<CR>
 
 
@@ -96,8 +104,8 @@ nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-l> :wincmd l<CR>
 
-nnoremap <C-n> :cnext<cr>
-nnoremap <C-p> :cprev<cr>
+nnoremap <C-N> :cnext<cr>
+nnoremap <C-P> :cprev<cr>
 
 if os == "Linux"
 	:command! -bar -nargs=1 OpenURL :!firefox <args>
@@ -136,7 +144,6 @@ let Grep_Default_Options = '-s -I -n -R'
 nnoremap <silent> <F7> :Rgrep <CR><CR><CR><CR>
 
 map <Leader>ss :setlocal spell!<cr>
-map <Leader>/ :nohlsearch<cr>
 map <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map <Leader>me :MiniBufExplorer<cr>
 map <Leader>c :call setqflist([])<cr>
