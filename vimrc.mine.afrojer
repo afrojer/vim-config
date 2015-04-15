@@ -48,6 +48,13 @@ function! SetWhitespaceFormat(style)
 		set tabstop=2
 		set shiftwidth=2
 		set textwidth=500
+		echomsg "Whitespace format set to 'OCaml'"
+	elseif a:style =~ '^latex'
+		set expandtab
+		set tabstop=2
+		set shiftwidth=2
+		set textwidth=80
+		echomsg "Whitespace format set to 'LaTeX'"
 	else
 		set noexpandtab
 		set tabstop=4
@@ -66,6 +73,7 @@ map <Leader>wa :call SetWhitespaceFormat("android")<CR>
 map <Leader>wk :call SetWhitespaceFormat("kernel")<CR>
 map <Leader>wp :call SetWhitespaceFormat("pvr")<CR>
 map <Leader>wo :call SetWhitespaceFormat("ocaml")<CR>
+map <Leader>wl :call SetWhitespaceFormat("latex")<CR>
 map <Leader>wd :call SetWhitespaceFormat("default")<CR>
 
 
