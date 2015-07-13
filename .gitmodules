@@ -182,3 +182,6 @@
 [submodule "bundle/qfenter"]
 	path = bundle/qfenter
 	url = https://github.com/yssl/QFEnter.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git://github.com/afrojer/snipmate.vim.git
