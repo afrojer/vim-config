@@ -66,10 +66,6 @@
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular
 	ignore = dirty
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git://github.com/nviennot/snipmate.vim.git
-	ignore = dirty
 [submodule "bundle/coffee-script"]
 	path = bundle/coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
