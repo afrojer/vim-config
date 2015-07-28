@@ -29,6 +29,10 @@ clean_mine:
 	$(call check_file,$@)
 	@echo Using $(ME) $* file
 	@ln -s $< $@
+	@if [ -f $(<).private ]; then \
+		echo Using $(ME).private $* file...; \
+		ln -s $(<).private $(@).private; \
+	fi
 
 $(HOME)/.%: %
 	$(call check_file,$@)

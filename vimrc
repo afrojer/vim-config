@@ -255,4 +255,8 @@ end
 """""""""""""""""""""""""
 so ~/.vim/vimrc.mine
 
+if !empty(glob("~/.vim/vimrc.mine.private"))
+	so ~/.vim/vimrc.mine.private
+end
+
 " TODO raise contrast for comments
