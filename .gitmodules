@@ -185,3 +185,7 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/afrojer/snipmate.vim.git
+[submodule "bundle/ag"]
+	path = bundle/ag
+	url = https://github.com/rking/ag.vim.git
+	branch = master

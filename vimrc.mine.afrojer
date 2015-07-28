@@ -250,5 +250,8 @@ nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> :execute "normal! \<C-O
 " Find functions called by this function
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
 
+" Silver Searcher (Ag) plugin
+set runtimepath^=~/.vim/bundle/ag
+
 " Take it easy on the auto updating
 autocmd BufEnter * set updatetime=60000
