@@ -6,3 +6,7 @@ set guioptions-=L  "remove left-hand scroll bar
 set visualbell t_vb=
 
 so ~/.vim/gvimrc.mine
+
+if !empty(glob("~/.vim/gvimrc.mine.private"))
+	so ~/.vim/gvimrc.mine.private
+end
