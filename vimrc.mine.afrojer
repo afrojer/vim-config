@@ -1,11 +1,11 @@
 
-let os = substitute(system('uname'), "\n", "", "")
+let g:os = substitute(system('uname'), "\n", "", "")
 
 if $TERM =~ '256color'
 	set t_Co=256
 elseif $TERM =~ '^xterm$'
 	set t_Co=256
-elseif os == "Darwin"
+elseif g:os == "Darwin"
 	set t_Co=16
 endif
 
@@ -107,9 +107,9 @@ nnoremap <C-l> :wincmd l<CR>
 nnoremap <C-N> :cnext<cr>
 nnoremap <C-P> :cprev<cr>
 
-if os == "Linux"
+if g:os == "Linux"
 	:command! -bar -nargs=1 OpenURL :!firefox <args>
-elseif os == "Darwin"
+elseif g:os == "Darwin"
 	:command! -bar -nargs=1 OpenURL :!open <args>
 endif
 
@@ -149,7 +149,7 @@ map <Leader>me :MiniBufExplorer<cr>
 map <Leader>c :call setqflist([])<cr>
 
 if has("unix")
-  if os == "Darwin"
+  if g:os == "Darwin"
 "    vnoremap <Leader>y y:call system("pbcopy", getreg("\""))<cr>
 "    nnoremap <Leader>p :call setreg("\"",system("pbpaste"))<CR>p
     vnoremap <Leader>y y:call system("ssh localhost pbcopy", getreg(""))<CR><CR>
@@ -162,7 +162,7 @@ endif
 
 " Let mac-vim receive meta-key input
 if has("gui_running") && has("unix")
-  if os == "Darwin"
+  if g:os == "Darwin"
     set invmmta
   endif
 endif
