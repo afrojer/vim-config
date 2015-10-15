@@ -233,22 +233,30 @@ set cscopequickfix=s-,g-,d-,c-,t-,e-,f-,i-
 " quickfix buffer will be in focus for easy searching of results.
 
 " Find this C symbol
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find this definition
 nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>G :cs find g <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>G :cs find g <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>G :cs find g <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find functions calling this function
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find assignments to
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find this egrep pattern
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find this file
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find files #-including this file
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find functions called by this function
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+"nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 
 " Silver Searcher (Ag) plugin
 set runtimepath^=~/.vim/bundle/ag
