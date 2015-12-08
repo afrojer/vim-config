@@ -224,6 +224,21 @@ let g:SuperTabMappingForward = '<C-Space>'
 let g:SuperTabMappingBackward = '<s-nul>'
 
 """"""""""""""""""""""""""""""""""""""
+" fugitive keybindings
+nnoremap <silent> <Leader>gf :Git fetch<CR>
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+
+""""""""""""""""""""""""""""""""""""""
+" vim-gitgutter keybindings
+let g:gitgutter_map_keys = 0
+nnoremap <silent> <Leader>hn :GitGutterNextHunk
+nnoremap <silent> <Leader>hp :GitGutterPrevHunk
+nnoremap <silent> <Leader>hs :GitGutterStageHunk<CR>
+nnoremap <silent> <Leader>hr :GitGutterRevertHunk<CR>
+nnoremap <silent> <Leader>hv :GitGutterPreviewHunk<CR>
+nnoremap <silent> <Leader>gg :GitGutterToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""
 " cscope keybindings
 set cscopequickfix=s-,g-,d-,c-,t-,e-,f-,i-
 " The :execute... bits will perform a Ctrl-O to jump back to the previous
