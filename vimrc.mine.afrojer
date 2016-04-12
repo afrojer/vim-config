@@ -278,3 +278,15 @@ set runtimepath^=~/.vim/bundle/ag
 
 " Take it easy on the auto updating
 autocmd BufEnter * set updatetime=60000
+
+""""""""""""""""""""""""""""""""""""""
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX files.
+" Taken from: http://vim.wikia.com/wiki/Modeline_magic
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
+        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
