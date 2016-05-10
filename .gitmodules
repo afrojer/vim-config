@@ -193,3 +193,7 @@
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
 	branch = master
+[submodule "bundle/vim-smarttabs"]
+	path = bundle/vim-smarttabs
+	url = https://github.com/dpc/vim-smarttabs.git
+	branch = master
