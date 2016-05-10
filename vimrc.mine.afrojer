@@ -25,6 +25,9 @@ map <Leader>ll :HighlightLongLines 80<cr>
 map <Leader>nl :HighlightLongLines 1000<cr>
 
 function! SetWhitespaceFormat(style)
+	set copyindent
+	set preserveindent
+	set softtabstop=0
 	if a:style =~ '^android'
 		set expandtab
 		set tabstop=4
