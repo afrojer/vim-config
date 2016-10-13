@@ -155,8 +155,8 @@ if has("unix")
   if g:os == "Darwin"
 "    vnoremap <Leader>y y:call system("pbcopy", getreg("\""))<cr>
 "    nnoremap <Leader>p :call setreg("\"",system("pbpaste"))<CR>p
-    vnoremap <Leader>y y:call system("ssh localhost pbcopy", getreg(""))<CR><CR>
-    nnoremap <Leader>p :call setreg("",system("ssh localhost pbpaste"))<CR>p
+    vnoremap <Leader>y y:call system("ssh localhost pbcopy 2>/dev/null", getreg(""))<CR><CR>
+    nnoremap <Leader>p :call setreg("",system("ssh localhost pbpaste 2>/dev/null"))<CR>p
   else
     vnoremap <Leader>y "*y
     nnoremap <Leader>p "*p
@@ -230,6 +230,20 @@ let g:SuperTabMappingBackward = '<s-nul>'
 " fugitive keybindings
 nnoremap <silent> <Leader>gf :Git fetch<CR>
 nnoremap <silent> <Leader>gs :Gstatus<CR>
+
+""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe config
+"
+" more info: https://valloric.github.io/YouCompleteMe/#options
+"
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" setting this to a high value will effectively turn off identifier completion
+" while keeping semantic triggers (e.g. for '.' or '->')
+let g:ycm_min_num_of_chars_for_completion = 3
+" identifier completion
+let g:ycm_auto_trigger = 1
+" show detailed diagnostic info (for compilation errors)
+let g:ycm_key_detailed_diagnostics = '<leader>d'
 
 """"""""""""""""""""""""""""""""""""""
 " vim-gitgutter keybindings

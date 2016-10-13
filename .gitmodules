@@ -197,3 +197,7 @@
 	path = bundle/vim-smarttabs
 	url = https://github.com/dpc/vim-smarttabs.git
 	branch = master
+[submodule "bundle/you-complete-me"]
+	path = bundle/you-complete-me
+	url = https://github.com/Valloric/YouCompleteMe.git
+	branch = master
