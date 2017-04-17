@@ -11,6 +11,7 @@ call pathogen#infect()
 syntax on
 set cursorline
 set number
+set encoding=utf-8
 set list!                       " Display unprintable characters
 set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
 if $TERM =~ '256color'
