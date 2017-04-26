@@ -6,8 +6,11 @@ if $TERM =~ '256color'
 elseif $TERM =~ '^xterm$'
 	set t_Co=256
 elseif g:os == "Darwin"
-	set t_Co=16
+	set t_Co=256
 endif
+
+" Disable background color erase by clearing the t_ut terminal option
+set t_ut=
 
 set mouse=a                     " allow mouse from terminal
 
