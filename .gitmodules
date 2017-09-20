@@ -249,3 +249,4 @@
 	path = bundle/you-complete-me
 	url = https://github.com/Valloric/YouCompleteMe.git
 	branch = master
+	ignore = dirty
