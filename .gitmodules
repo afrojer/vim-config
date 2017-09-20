@@ -2,54 +2,67 @@
 	path = bundle/markdown
 	url = git://github.com/ujihisa/vim-markdown.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/abolish"]
 	path = bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/cucumber"]
 	path = bundle/cucumber
 	url = git://github.com/tpope/vim-cucumber.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/endwise"]
 	path = bundle/endwise
 	url = git://github.com/tpope/vim-endwise.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/haml"]
 	path = bundle/haml
 	url = git://github.com/tpope/vim-haml.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/rails"]
 	path = bundle/rails
 	url = git://github.com/tpope/vim-rails.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/repeat"]
 	path = bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/speeddating"]
 	path = bundle/speeddating
 	url = git://github.com/tpope/vim-speeddating.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/xmledit"]
 	path = bundle/xmledit
 	url = git://github.com/sukima/xmledit.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
@@ -59,54 +72,67 @@
 	path = autoload/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
 	ignore = dirty
+	branch = master
 [submodule "autoload/afterimage"]
 	path = autoload/afterimage
 	url = git://github.com/tpope/vim-afterimage.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular
 	ignore = dirty
+	branch = master
 [submodule "bundle/coffee-script"]
 	path = bundle/coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/gist"]
 	path = bundle/gist
 	url = git://github.com/vim-scripts/Gist.vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/quickfixsigns"]
 	path = bundle/quickfixsigns
 	url = git://github.com/tomtom/quickfixsigns_vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/addon-mw-utils"]
 	path = bundle/addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/tlib"]
 	path = bundle/tlib
 	url = git://github.com/tomtom/tlib_vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/l9"]
 	path = bundle/l9
 	url = git://github.com/vim-scripts/L9.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = git://github.com/afrojer/molokai.git
@@ -116,73 +142,93 @@
 	path = bundle/armasm
 	url = git://github.com/nviennot/vim-armasm.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/powerline"]
 	path = bundle/powerline
 	url = git://github.com/nviennot/vim-powerline.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/ruby"]
 	path = bundle/ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/scala"]
 	path = bundle/scala
 	url = git://github.com/sidnair/scala-vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/screen"]
 	path = bundle/screen
 	url = git://github.com/ervandew/screen.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/webapi"]
 	path = bundle/webapi
 	url = git://github.com/mattn/webapi-vim.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/less"]
 	path = bundle/less
 	url = git://github.com/groenewege/vim-less.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/css3-syntax"]
 	path = bundle/css3-syntax
 	url = git://github.com/hail2u/vim-css3-syntax.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/css-color"]
 	path = bundle/css-color
 	url = git://github.com/skammer/vim-css-color.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
+	branch = master
 [submodule "bundle/bufsurf"]
 	path = bundle/bufsurf
 	url = git://github.com/ton/vim-bufsurf.git
+	branch = master
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+	branch = master
 [submodule "bundle/slim"]
 	path = bundle/slim
 	url = git://github.com/slim-template/vim-slim.git
+	branch = master
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
 	url = git://github.com/afrojer/vim-latex.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/cocoa.vim"]
 	path = bundle/cocoa.vim
 	url = git://github.com/msanders/cocoa.vim.git
+	branch = master
 [submodule "bundle/xnudmesg"]
 	path = bundle/xnudmesg
 	url = git@github.com:afrojer/vim-xnudmesg.git
+	branch = master
 [submodule "bundle/crdmesg"]
 	path = bundle/crdmesg
 	url = git@github.com:afrojer/vim-crdmesg.git
+	branch = master
 [submodule "bundle/qfenter"]
 	path = bundle/qfenter
 	url = https://github.com/yssl/QFEnter.git
+	branch = master
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/afrojer/snipmate.vim.git
+	branch = master
 [submodule "bundle/ag"]
 	path = bundle/ag
 	url = https://github.com/rking/ag.vim.git
