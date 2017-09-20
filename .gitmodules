@@ -111,6 +111,7 @@
 	path = bundle/molokai
 	url = git://github.com/afrojer/molokai.git
 	ignore = dirty
+	branch = master
 [submodule "bundle/armasm"]
 	path = bundle/armasm
 	url = git://github.com/nviennot/vim-armasm.git
