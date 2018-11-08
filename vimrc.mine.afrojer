@@ -43,7 +43,7 @@ function! SetWhitespaceFormat(style)
 		set shiftwidth=4
 		set textwidth=100
 		echomsg "Whitespace format set to 'XNU'"
-	elseif a:style =~ '^kernel'
+	elseif a:style =~ '^linux'
 		set noexpandtab
 		set tabstop=8
 		set shiftwidth=8
@@ -65,7 +65,7 @@ function! SetWhitespaceFormat(style)
 		set noexpandtab
 		set tabstop=4
 		set shiftwidth=4
-		set textwidth=80
+		set textwidth=100
 		echomsg "default whitespace format..."
 	endif
 endfunction
@@ -73,10 +73,10 @@ endfunction
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
-set textwidth=80
+set textwidth=100
 
 map <Leader>wa :call SetWhitespaceFormat("android")<CR>
-map <Leader>wk :call SetWhitespaceFormat("kernel")<CR>
+map <Leader>wk :call SetWhitespaceFormat("linux")<CR>
 map <Leader>wx :call SetWhitespaceFormat("xnu")<CR>
 map <Leader>wo :call SetWhitespaceFormat("ocaml")<CR>
 map <Leader>wl :call SetWhitespaceFormat("latex")<CR>
