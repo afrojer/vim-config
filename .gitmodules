@@ -241,3 +241,7 @@
 	path = bundle/vim-smarttabs
 	url = https://github.com/dpc/vim-smarttabs.git
 	branch = master
+[submodule "bundle/deoplete"]
+	path = bundle/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
+	branch = master
