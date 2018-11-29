@@ -244,6 +244,8 @@ nnoremap <silent> <Leader>gs :Gstatus<CR>
 "
 set completeopt=menu
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" Don't ask for permission to load extra conf files
+let g:ycm_confirm_extra_conf = 0
 " setting this to a high value will effectively turn off identifier completion
 " while keeping semantic triggers (e.g. for '.' or '->')
 let g:ycm_min_num_of_chars_for_completion = 3
@@ -252,7 +254,7 @@ let g:ycm_auto_trigger = 1
 " show detailed diagnostic info (for compilation errors)
 let g:ycm_key_detailed_diagnostics = '<leader>d'
 " Don't put completion candidate info in a preview window at the top of the file
-let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_add_preview_to_completeopt = 1
 
 """"""""""""""""""""""""""""""""""""""
 " vim-gitgutter keybindings
