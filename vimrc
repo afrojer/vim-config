@@ -58,7 +58,11 @@ set formatoptions-=t formatoptions+=croql
 "   "500 : save up to 500 lines for each register
 "   :1000 : up to 1000 lines of command-line history will be remembered
 "   n... : where to save the viminfo files
-set viminfo=%100,'100,/100,h,\"500,:1000,n~/.vim/viminfo
+if has('nvim')
+  set viminfo=%100,'100,/100,h,\"500,:1000,n~/.vim/nviminfo
+else
+  set viminfo=%100,'100,/100,h,\"500,:1000,n~/.vim/viminfo
+endif
 
 " ctags: recurse up to home to find tags. See
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
