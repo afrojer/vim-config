@@ -256,6 +256,14 @@ let g:ycm_key_detailed_diagnostics = '<leader>d'
 " Don't put completion candidate info in a preview window at the top of the file
 let g:ycm_add_preview_to_completeopt = 1
 
+"""""""""""""""""""""""""""""""""""""
+" Deoplete config
+"
+if has("python3")
+  let g:deoplete#enable_at_startup = 1
+  call deoplete#enable()
+endif
+
 """"""""""""""""""""""""""""""""""""""
 " vim-gitgutter keybindings
 let g:gitgutter_map_keys = 0
