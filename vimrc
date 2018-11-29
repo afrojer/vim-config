@@ -170,7 +170,7 @@ let NERDTreeShowFiles=1
 nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 
-nnoremap <Leader>a :Ack 
+nnoremap <Leader>a :Ag
 
 " Put a space around comment markers
 let g:NERDSpaceDelims = 1
@@ -225,11 +225,11 @@ let g:ScreenShellQuitOnVimExit = 0
 """""""""""""""""""""""""
 " Ruby Stuff
 """""""""""""""""""""""""
-command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
-map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
-map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
-map <Leader>w :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
-map <Leader>m :w<CR> :call ScreenShellSend("\e[A")<CR>
+"command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+"map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+"map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+"map <Leader>w :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+"map <Leader>m :w<CR> :call ScreenShellSend("\e[A")<CR>
 
 """""""""""""""""""""""""
 " Cscope
@@ -248,7 +248,7 @@ if has("cscope")
   endif
 
   " Show msg when any other cscope db is added
-  set cscopeverbose
+  "set cscopeverbose
 end
 
 """""""""""""""""""""""""
