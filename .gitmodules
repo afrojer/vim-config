@@ -188,10 +188,6 @@
 	url = git://github.com/skammer/vim-css-color.git
 	ignore = dirty
 	branch = master
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = git://github.com/mileszs/ack.vim.git
-	branch = master
 [submodule "bundle/bufsurf"]
 	path = bundle/bufsurf
 	url = git://github.com/ton/vim-bufsurf.git
@@ -245,8 +241,3 @@
 	path = bundle/vim-smarttabs
 	url = https://github.com/dpc/vim-smarttabs.git
 	branch = master
-[submodule "bundle/you-complete-me"]
-	path = bundle/you-complete-me
-	url = https://github.com/Valloric/YouCompleteMe.git
-	branch = master
-	ignore = dirty
