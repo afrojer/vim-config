@@ -49,12 +49,12 @@ function! SetWhitespaceFormat(style)
 		set shiftwidth=8
 		set textwidth=80
 		echomsg "Whitespace format set to 'kernel'"
-	elseif a:style =~ '^ocaml'
+	elseif a:style =~ '^octopus'
 		set expandtab
-		set tabstop=2
-		set shiftwidth=2
-		set textwidth=500
-		echomsg "Whitespace format set to 'OCaml'"
+		set tabstop=4
+		set shiftwidth=4
+		set textwidth=80
+		echomsg "Whitespace format set to 'Octopus'"
 	elseif a:style =~ '^latex'
 		set expandtab
 		set tabstop=2
@@ -73,12 +73,12 @@ endfunction
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
-set textwidth=100
+set textwidth=80
 
 map <Leader>wa :call SetWhitespaceFormat("android")<CR>
 map <Leader>wk :call SetWhitespaceFormat("linux")<CR>
 map <Leader>wx :call SetWhitespaceFormat("xnu")<CR>
-map <Leader>wo :call SetWhitespaceFormat("ocaml")<CR>
+map <Leader>wo :call SetWhitespaceFormat("octopus")<CR>
 map <Leader>wl :call SetWhitespaceFormat("latex")<CR>
 map <Leader>wd :call SetWhitespaceFormat("default")<CR>
 
@@ -151,7 +151,7 @@ nnoremap <silent> <F7> :Rgrep <CR><CR><CR><CR>
 
 map <Leader>ss :setlocal spell!<cr>
 map <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-map <Leader>me :MiniBufExplorer<cr>
+map <Leader>me :MBEOpen<cr>
 map <Leader>c :call setqflist([])<cr>
 
 if has("unix")
