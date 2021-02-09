@@ -201,9 +201,9 @@ autocmd User fugitive
   \ endif
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-if executable('git-hyper-blame')
-  let g:fugitive_blame_cmd = 'hyper-blame'
-endif
+"if executable('git-hyper-blame')
+"  let g:fugitive_blame_cmd = 'hyper-blame'
+"endif
 
 
 """"""""""""""""""""""""""""""""""""""
