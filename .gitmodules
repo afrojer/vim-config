@@ -261,9 +261,6 @@
 	path = bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
 	branch = master
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/ycm-core/YouCompleteMe.git
 [submodule "bundle/YCM-Generator"]
 	path = bundle/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator.git
