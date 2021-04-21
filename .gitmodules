@@ -267,3 +267,12 @@
 [submodule "bundle/YCM-Generator"]
 	path = bundle/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator.git
+[submodule "bundle/vim-lsp-cxx-highlight"]
+	path = bundle/vim-lsp-cxx-highlight
+	url = https://github.com/jackguo380/vim-lsp-cxx-highlight.git
+[submodule "bundle/coc-nvim"]
+	path = bundle/coc-nvim
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule "bundle/coc-clangd"]
+	path = bundle/coc-clangd
+	url = https://github.com/clangd/coc-clangd.git
