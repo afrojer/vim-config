@@ -183,7 +183,6 @@ nnoremap <C-y> :YRShow<cr>
 let g:yankring_history_dir = '$HOME/.vim'
 let g:yankring_manual_clipboard_check = 0
 
-map <Leader>l :MiniBufExplorer<cr>
 let g:miniBufExplorerMoreThanOne = 10000
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMapWindowNavVim = 1

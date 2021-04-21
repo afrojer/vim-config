@@ -152,6 +152,7 @@ nnoremap <silent> <F7> :Rgrep <CR><CR><CR><CR>
 map <Leader>ss :setlocal spell!<cr>
 map <Leader>tr :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map <Leader>me :MBEOpen<cr>
+map <Leader>mc :MBECloseAll<cr>
 map <Leader>c :call setqflist([])<cr>
 
 if has("unix")
@@ -287,9 +288,8 @@ set cscopequickfix=s-,g-,d-,c-,t-,e-,f-,i-
 "nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find this definition
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 "nmap <C-\>G :cs find g <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
-nmap <C-\>G :cs find g <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 " Find functions calling this function
 "nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
 nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
@@ -308,6 +308,13 @@ nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> :execute "normal! \<C-O
 " Find functions called by this function
 "nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
+
+" CodeQuery plugin
+let g:codequery_trigger_build_db_when_db_not_found = 1
+let g:codequery_auto_switch_to_find_text_for_wrong_filetype = 1
+let g:codequery_find_text_cmd = 'Ag!'
+nnoremap <silent> <Leader>; :CodeQueryMenu Unite Magic<CR>
+nmap <C-\>q :CodeQuery Symbol<CR>
 
 " Silver Searcher (Ag) plugin
 set runtimepath^=~/.vim/bundle/ag

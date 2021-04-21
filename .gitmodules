@@ -253,3 +253,11 @@
 	path = bundle/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp.git
 	branch = master
+[submodule "bundle/codequery"]
+	path = bundle/codequery
+	url = https://github.com/devjoe/vim-codequery.git
+	branch = master
+[submodule "bundle/unite"]
+	path = bundle/unite
+	url = https://github.com/Shougo/unite.vim.git
+	branch = master
