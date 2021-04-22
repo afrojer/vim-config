@@ -273,3 +273,6 @@
 [submodule "bundle/coc-clangd"]
 	path = bundle/coc-clangd
 	url = https://github.com/clangd/coc-clangd.git
+[submodule "bundle/vim-polyglot"]
+	path = bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
