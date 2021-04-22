@@ -35,6 +35,8 @@ set history=1000                " Remember 1000 commands
 set scrolloff=5                 " Start scrolling 3 lines before the horizontal window border
 set visualbell t_vb=            " Disable error bells
 set shortmess+=A                " Always edit file, even when swap file is found
+set shortmess+=c                " Don't pass messages to |ins-completion-menu|.
+set signcolumn=yes
 
 " up/down on displayed lines, not real lines. More useful than painful.
 noremap k gk

@@ -211,10 +211,10 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Get rid of some very annoying warnings opening stdin
 
 compiler gcc
-set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ syscall\ process_vm_readv\ not\ implemented\ [-Wcpp]
-set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ syscall\ process_vm_writev\ not\ implemented\ [-Wcpp]
-set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"
-set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"\ [-Wcpp]
+"set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ syscall\ process_vm_readv\ not\ implemented\ [-Wcpp]
+"set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ syscall\ process_vm_writev\ not\ implemented\ [-Wcpp]
+"set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"
+"set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"\ [-Wcpp]
 
 """"""""""""""""""""""""""""""""""""""
 " Remap autocomplete to ctrl+space
@@ -259,11 +259,12 @@ let g:ycm_add_preview_to_completeopt = 1
 
 """""""""""""""""""""""""""""""""""""
 " Deoplete config
+" NOTE: disable for now in favor of vim-lsp-cxx highlighting
 "
-if has("python3")
-  let g:deoplete#enable_at_startup = 1
-  call deoplete#enable()
-endif
+"if has("python3")
+"  let g:deoplete#enable_at_startup = 1
+"  call deoplete#enable()
+"endif
 
 """"""""""""""""""""""""""""""""""""""
 " vim-gitgutter keybindings
@@ -333,3 +334,12 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+""""----------------------------------------------------------------------""""
+""""
+"""" configuration for the coc.nvim plugin for syntax highlighting
+"""" and code completion via clangd
+""""
+so ~/.vim/vimrc.coc.nvim
+
+""""----------------------------------------------------------------------""""
