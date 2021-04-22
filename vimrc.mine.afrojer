@@ -216,30 +216,27 @@ compiler gcc
 "set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"
 "set errorformat^=%-G<stdin>:%l:2:\ warning:\ #warning\ \"TODO:\ return_address\ should\ user\ unwind\ tables\"\ [-Wcpp]
 
-""""""""""""""""""""""""""""""""""""""
-" Remap autocomplete to ctrl+space
-if has("gui_running")
-  " C-Space seems to work under gVim on both Linux and win32
-  inoremap <C-Space> <C-n>
-else " no gui
-  if has("unix")
-    inoremap <Nul> <C-n>
-  else
-  " I have no idea of the name of Ctrl-Space elsewhere
-  endif
-endif
+"""""""""""""""""""""""""""""""""""""""
+"" Remap autocomplete to ctrl+space
+"if has("gui_running")
+"  " C-Space seems to work under gVim on both Linux and win32
+"  inoremap <C-Space> <C-n>
+"else " no gui
+"  if has("unix")
+"    inoremap <Nul> <C-n>
+"  else
+"  " I have no idea of the name of Ctrl-Space elsewhere
+"  endif
+"endif
 
-let g:SuperTabMappingTabLiteral = '<s-tab>'
-let g:SuperTabMappingForward = '<C-Space>'
-let g:SuperTabMappingBackward = '<s-nul>'
-
-""""""""""""""""""""""""""""""""""""""
-" fugitive keybindings
+""""""""""""""""""""""""""""""
+" => fugitive plugin
+""""""""""""""""""""""""""""""
 nnoremap <silent> <Leader>gf :Git fetch<CR>
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 
-""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe config
+""""""""""""""""""""""""""""""
+" => YouCompleteMe plugin
 "
 " more info: https://valloric.github.io/YouCompleteMe/#options
 "
@@ -257,8 +254,9 @@ let g:ycm_key_detailed_diagnostics = '<leader>d'
 " Don't put completion candidate info in a preview window at the top of the file
 let g:ycm_add_preview_to_completeopt = 1
 
-"""""""""""""""""""""""""""""""""""""
-" Deoplete config
+""""""""""""""""""""""""""""""
+" => deoplete plugin
+"
 " NOTE: disable for now in favor of vim-lsp-cxx highlighting
 "
 "if has("python3")
@@ -266,8 +264,9 @@ let g:ycm_add_preview_to_completeopt = 1
 "  call deoplete#enable()
 "endif
 
-""""""""""""""""""""""""""""""""""""""
-" vim-gitgutter keybindings
+""""""""""""""""""""""""""""""
+" => vim-gitgutter plugin
+""""""""""""""""""""""""""""""
 let g:gitgutter_map_keys = 0
 nnoremap <silent> <Leader>hn :GitGutterNextHunk<CR>
 nnoremap <silent> <Leader>hp :GitGutterPrevHunk<CR>
@@ -276,8 +275,9 @@ nnoremap <silent> <Leader>hr :GitGutterRevertHunk<CR>
 nnoremap <silent> <Leader>hv :GitGutterPreviewHunk<CR>
 nnoremap <silent> <Leader>gg :GitGutterToggle<CR>
 
-""""""""""""""""""""""""""""""""""""""
-" cscope keybindings
+""""""""""""""""""""""""""""""
+" => cscope keybindings
+""""""""""""""""""""""""""""""
 set cscopequickfix=s-,g-,d-,c-,t-,e-,f-,i-
 " The :execute... bits will perform a Ctrl-O to jump back to the previous
 " location, and the :copen will open the quickfix buffer. This interacts nicely
@@ -310,14 +310,18 @@ nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR> :execute "normal! \<C-O
 "nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:copen<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> :execute "normal! \<C-O>"<CR>:cwindow<CR>/<C-R>=expand("<cword>")<CR><CR>
 
-" CodeQuery plugin
+""""""""""""""""""""""""""""""
+" => codequery plugin
+""""""""""""""""""""""""""""""
 let g:codequery_trigger_build_db_when_db_not_found = 1
 let g:codequery_auto_switch_to_find_text_for_wrong_filetype = 1
 let g:codequery_find_text_cmd = 'Ag!'
 nnoremap <silent> <Leader>; :CodeQueryMenu Unite Magic<CR>
 nmap <C-\>q :CodeQuery Symbol<CR>
 
-" Silver Searcher (Ag) plugin
+""""""""""""""""""""""""""""""
+" => silver searcher (ag) plugin
+""""""""""""""""""""""""""""""
 set runtimepath^=~/.vim/bundle/ag
 
 " Take it easy on the auto updating
@@ -341,5 +345,35 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 """" and code completion via clangd
 """"
 so ~/.vim/vimrc.coc.nvim
-
 """"----------------------------------------------------------------------""""
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+set laststatus=2
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGitInfo()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%#StatusLineGit#%{StatuslineGitInfo()}
+set statusline+=%#StatusLineNm#
+set statusline+=\ \|%#StatusLineFile#%f%#StatusLineNm#\|
+set statusline+=\ %#StatusLineFType#%y
+set statusline+=%#StatusLineNm#
+"set statusline+=\ %m
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+"set statusline+=\[%{&fileformat}\]
+set statusline+=\ %#StatusLineCol#%l:%c
+set statusline+=\ %#StatusLineNm#(%p%%)
+set statusline+=\ %#StatusLineFunc#%{tagbar#currenttag('%s','','f','scoped-stl')}
+set statusline+=%#StatusLineNm#
+set statusline+=\ %#StatusLineFunc#%{get(b:,'coc_current_function','')}
+set statusline+=%=
+set statusline+=\ %#StatusLineDbg#%{coc#status()}

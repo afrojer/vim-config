@@ -1,7 +1,30 @@
 """""""""""""""""""""""""
+" Somethings need to be defined before pathogen runs
+"""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""
+" => Vim Polyglot plugin
+""""""""""""""""""""""""""""""
+let g:polyglot_disabled = ['markdown', 'cpp']
+
+""""""""""""""""""""""""""""""
+" => supertab plugin
+""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "<C-n>"
+let g:SuperTabContextDefaultCompletionType = "<C-n>"
+let g:SuperTabMappingTabLiteral = '<S-tab>'
+let g:SuperTabMappingForward = '<C-Space>'
+let g:SuperTabMappingBackward = '<S-nul>'
+
+""""""""""""""""""""""""""""""
+" => tagbar plugin
+""""""""""""""""""""""""""""""
+let g:no_status_line = 0 " disable tagbar status line (let it be set by others)
+
+"""""""""""""""""""""""""
 " Basic features
 """""""""""""""""""""""""
-let pathogen_disabled = []
+let pathogen_disabled = ['unite']
 if !has('gui_running')
   call add(g:pathogen_disabled, 'css-color')
 endif
@@ -195,12 +218,11 @@ let g:miniBufExplVSplit = 20
 "let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['c', 'scss', 'html', 'scala'] }
+                           \ 'passive_filetypes': ['c', 'cpp', 'swift', 'scss', 'html', 'scala'] }
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
 let g:Powerline_symbols = 'unicode'
-set laststatus=2
 
 let g:ctrlp_map = '<Leader>.'
 let g:ctrlp_custom_ignore = '/\.\|\.o\|\.so\|\.dylib'
