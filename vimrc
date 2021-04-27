@@ -15,6 +15,7 @@ let g:SuperTabContextDefaultCompletionType = "<C-n>"
 let g:SuperTabMappingTabLiteral = '<S-tab>'
 let g:SuperTabMappingForward = '<C-Space>'
 let g:SuperTabMappingBackward = '<S-nul>'
+let g:SuperTabCrMapping = 0
 
 """"""""""""""""""""""""""""""
 " => tagbar plugin
@@ -51,6 +52,7 @@ set wildmenu                    " Enhanced completion hints in command line
 set wildmode=list:longest,full  " Complete longest common match and show possible matches and wildmenu
 set backspace=eol,start,indent  " Allow backspacing over indent, eol, & start
 set complete=.,w,b,u,U,t,i,d    " Do lots of scanning on tab completion
+set completeopt=longest,menuone,preview " don't select the first item, popup a menu even for 1 item
 set updatecount=100             " Write swap file to disk every 100 chars
 set directory=~/.vim/swap       " Directory to use for the swap file
 set diffopt=filler,iwhite       " In diff mode, ignore whitespace changes and align unchanged lines

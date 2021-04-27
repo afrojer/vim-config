@@ -240,7 +240,6 @@ nnoremap <silent> <Leader>gs :Gstatus<CR>
 "
 " more info: https://valloric.github.io/YouCompleteMe/#options
 "
-set completeopt=menu
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " Don't ask for permission to load extra conf files
 let g:ycm_confirm_extra_conf = 0
