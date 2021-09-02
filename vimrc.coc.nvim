@@ -41,6 +41,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 nmap gu <Plug>(coc-references-used)
 nmap <silent> gs :call CocAction('runCommand', 'clangd.symbolInfo')<CR>
+nmap <silent> gh :call CocCommand clangd.switchSourceHeader
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>

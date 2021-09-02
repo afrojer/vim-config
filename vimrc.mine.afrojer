@@ -190,6 +190,10 @@ endif
 au BufNewFile,BufRead *.S set filetype=armasm
 
 """"""""""""""""""""""""""""""""""""""
+" *.m files are Objective C
+au BufNewFile,BufRead *.m set filetype=objc
+
+""""""""""""""""""""""""""""""""""""""
 " Pipe kernel buffer into appropriately named file: voila colors
 au BufNewFile,BufRead *.crdmesg set filetype=crdmesg
 au BufNewFile,BufRead *.dmesg set filetype=xnudmesg
