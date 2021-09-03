@@ -267,12 +267,15 @@
 [submodule "bundle/vim-lsp-cxx-highlight"]
 	path = bundle/vim-lsp-cxx-highlight
 	url = https://github.com/jackguo380/vim-lsp-cxx-highlight.git
+	branch = master
 [submodule "bundle/coc-nvim"]
 	path = bundle/coc-nvim
 	url = https://github.com/neoclide/coc.nvim.git
+	branch = release
 [submodule "bundle/coc-clangd"]
 	path = bundle/coc-clangd
 	url = https://github.com/clangd/coc-clangd.git
+	branch = master
 [submodule "bundle/vim-polyglot"]
 	path = bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
