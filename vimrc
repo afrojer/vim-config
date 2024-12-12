@@ -2,6 +2,10 @@
 " Somethings need to be defined before pathogen runs
 """""""""""""""""""""""""
 
+" have an easy way to identify vim vs nvim in config
+let is_vim = !has('nvim')
+let is_nvim = has('nvim')
+
 """"""""""""""""""""""""""""""
 " => Vim Polyglot plugin
 """"""""""""""""""""""""""""""

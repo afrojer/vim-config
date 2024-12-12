@@ -281,7 +281,13 @@ nnoremap <silent> <Leader>gg :GitGutterToggle<CR>
 """"""""""""""""""""""""""""""
 " => cscope keybindings
 """"""""""""""""""""""""""""""
-set cscopequickfix=s-,g-,d-,c-,t-,e-,f-,i-
+
+if is_nvim
+  lua require("cscope_maps").setup()
+else
+  set cscopequickfix=s-,g-,d-,c-,t-,e-,f-,i-
+endif
+
 " The :execute... bits will perform a Ctrl-O to jump back to the previous
 " location, and the :copen will open the quickfix buffer. This interacts nicely
 " with the cscopequickfix line above: now cscope results will be placed in the

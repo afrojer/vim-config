@@ -279,3 +279,6 @@
 [submodule "bundle/vim-polyglot"]
 	path = bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "bundle/cscope_nvim"]
+	path = bundle/cscope_nvim
+	url = git@github.com:dhananjaylatkar/cscope_maps.nvim.git
